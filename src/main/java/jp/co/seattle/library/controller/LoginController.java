@@ -46,7 +46,7 @@ public class LoginController {
 			return "redirect:/home";
 		} else {
 			model.addAttribute("errorMessage", "メールアドレスとパスワードが一致しません");
-			return "createAccount";
+			return "redirect:/login";
 
 		}
 
