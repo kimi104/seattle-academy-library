@@ -25,26 +25,25 @@ public class BookUtil {
 	 * @return errorList エラーメッセージのリスト
 	 */
 	public List<String> checkBookInfo(BookDetailsInfo bookInfo) {
-
+		
 		//TODO　各チェックNGの場合はエラーメッセージをリストに追加（タスク４）
 		List<String> errorList = new ArrayList<>();
 		// 必須チェック
 		if (isEmptyBookInfo(bookInfo)) {
-			errorList.add(REQUIRED_ERROR);
-		}
-
+ 			errorList.add(REQUIRED_ERROR);
+ 		}
+		
 		// ISBNのバリデーションチェック
 		if (isValidIsbn(bookInfo.getIsbn())) {
-			errorList.add(ISBN_ERROR);
-		}
+ 			errorList.add(ISBN_ERROR);
+ 		}
 
 		// 出版日の形式チェック
 		if (checkDate(bookInfo.getPublishDate())) {
-			errorList.add(PUBLISHDATE_ERROR);
-		}
+ 			errorList.add(PUBLISHDATE_ERROR);
+ 		}
 
 		return errorList;
-
 	}
 
 	/**
@@ -59,11 +58,11 @@ public class BookUtil {
 			formatter.setLenient(false); // ←これで厳密にチェックしてくれるようになる
 			//TODO　取得した日付の形式が正しければtrue（タスク４）
 			//Date publishDateDate = formatter.parse(publishDate);
-			//String publishDateString = formatter.format(publishDateDate);
+ 			//String publishDateString = formatter.format(publishDateDate);
 
-			formatter.parse(publishDate);
-			return false;
-
+ 			formatter.parse(publishDate);
+ 			return false;
+ 			
 		} catch (Exception p) {
 			p.printStackTrace();
 			return true;
@@ -79,13 +78,13 @@ public class BookUtil {
 	private static boolean isValidIsbn(String isbn) {
 		//TODO　ISBNが半角数字で10文字か13文字であればtrue（タスク４）
 		if (!isbn.isEmpty()) {
-			if ((isbn.length() == 10 || isbn.length() == 13) && isbn.matches("^[0-9]+$")) {
-				return false;
-			} else {
-				return true;
-			}
-		}
-		return false;
+ 			if ((isbn.length() == 10 || isbn.length() == 13) && isbn.matches("^[0-9]+$")) {
+ 				return false;
+ 			} else {
+ 				return true;
+ 			}
+ 		}
+ 		return false;
 	}
 
 	/**
@@ -97,11 +96,10 @@ public class BookUtil {
 	private static boolean isEmptyBookInfo(BookDetailsInfo bookInfo) {
 		//TODO　タイトル、著者、出版社、出版日のどれか一つでもなかったらtrue（タスク４）
 		if (bookInfo.getTitle().isEmpty() && bookInfo.getAuthor().isEmpty() && bookInfo.getPublisher().isEmpty()
-				&& bookInfo.getPublishDate().isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-
+ 				&& bookInfo.getPublishDate().isEmpty()) {
+ 			return true;
+ 		} else {
+ 			return false;
+ 		}
 	}
 }
