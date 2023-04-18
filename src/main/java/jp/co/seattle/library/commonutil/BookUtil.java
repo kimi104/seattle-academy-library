@@ -1,3 +1,5 @@
+
+
 package jp.co.seattle.library.commonutil;
 
 import java.text.DateFormat;
@@ -63,10 +65,10 @@ public class BookUtil {
 			//変換したpublishDateをString型に変換
 			String publishDateString = formatter.format(publishDateDate);
 			//string型に変換したpublishdateと元々入力されたpublishdateをequalsで比較
-			if (publishDateString == publishDate) {
-				return true;
+			if (publishDateString.equals (publishDate)) {
+				return false;
 			}
-			return false;
+			return true;
 
 		} catch (Exception p) {
 			p.printStackTrace();
@@ -100,8 +102,8 @@ public class BookUtil {
 	 */
 	private static boolean isEmptyBookInfo(BookDetailsInfo bookInfo) {
 		//TODO　タイトル、著者、出版社、出版日のどれか一つでもなかったらtrue（タスク４）
-		if (!bookInfo.getTitle().isEmpty() || !bookInfo.getAuthor().isEmpty() || !bookInfo.getPublisher().isEmpty()
-				|| !bookInfo.getPublishDate().isEmpty()) {
+		if ((!bookInfo.getTitle().isEmpty()) && (!bookInfo.getAuthor().isEmpty()) && (!bookInfo.getPublisher().isEmpty())
+				&& (!bookInfo.getPublishDate().isEmpty())) {
 			return false;
 		} else {
 			return true;
