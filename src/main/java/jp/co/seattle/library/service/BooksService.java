@@ -68,6 +68,7 @@ public class BooksService {
 				bookInfo.getThumbnailUrl(), bookInfo.getIsbn(), bookInfo.getDescription());
 		return bookId;
 	}
+	
 
 	/**
 	 * 書籍を削除する
