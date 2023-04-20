@@ -15,7 +15,7 @@ import jp.co.seattle.library.service.BooksService;
 
 @Controller
 public class DeleteBookController {
-	final static Logger logger = LoggerFactory.getLogger(EditBookController.class);
+	final static Logger logger = LoggerFactory.getLogger(DeleteBookController.class);
 
 	@Autowired
 	private BooksService booksService;
