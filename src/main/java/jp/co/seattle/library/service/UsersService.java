@@ -34,6 +34,14 @@ public class UsersService {
 		jdbcTemplate.update(sql);
 	}
 
+	//ユーザー情報を更新する
+	public void updateUserInfo(UserInfo userInfo) {
+		String sql = "UPDATE users SET email=?, password=?, reg_date=now(), upd_date=now() where id=?;";
+
+		jdbcTemplate.update(sql);
+
+	}
+
 	/**
 	 * ユーザー情報取得
 	 * 
